@@ -8,9 +8,11 @@ import { CiDark } from 'react-icons/ci'
 import { MdLightMode } from 'react-icons/md'
 import { RiCloseFill } from 'react-icons/ri'
 
-import { toggleTheme, setAsPreferred, setCurrentTheme, goTo } from '../../store/features'
+import { toggleTheme, setCurrentTheme, goTo } from '../../store/features'
 
 import { tabs } from '../../configuration'
+
+import logo from '../../assets/nbaRedditLogo.svg'
 
 export default function Navbar() {
     const dispatch = useDispatch()
@@ -43,7 +45,8 @@ export default function Navbar() {
 
         <nav className="min-h-[4rem] p-3 border-b-[1px] border-gray-200 bg-light dark:bg-dark dark:border-gray-500 w-full fixed z-50">
             <div className="container flex flex-wrap items-center justify-between mx-auto">
-                <a href="#" className="flex items-center">
+                <a href="https://nba-reddit.netlify.app/" className="flex items-baseline">
+                    <img src={logo} alt="NBA Reddit App" className='w-6 mx-2' />
                     <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">NBA Reddit App</span>
                 </a>
                 <div>
