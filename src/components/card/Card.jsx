@@ -26,17 +26,17 @@ export function Card({ post }) {
 
     const spoilerExtension = {
         type: 'lang',
-        regex: /\>\!(.*?)\!\</g,
+        regex: /\&\g\t\;\!(.*?)\!\&\l\t\;/g,
         replace: '<span></span>',
     };
 
     return (
-        <div className="hover:cursor-pointer block overflow-auto w-full py-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <div className="block overflow-auto w-full py-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div className="flex flex-row">
                 <div className="ml-4 mr-5 mt-6 flex flex-col gap-1 items-center justify-start">
-                    <RxThickArrowUp />
+                    <RxThickArrowUp className="text-xl"/>
                     <span className="font-light text-sm">{score}</span>
-                    <RxThickArrowDown />
+                    <RxThickArrowDown className="text-xl"/>
                 </div>
                 <div className="flex flex-col gap-1 mr-2">
                     <div className="flex flex-row gap-2 items-baseline">
@@ -45,7 +45,7 @@ export function Card({ post }) {
                         }
                         <span className="my-1 font-light text-xs text-gray-400">{getDateDiff(postDate)}</span>
                     </div>
-                    <h6 onClick={() => window.open(url, '_blank')}  className="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{truncateText(title, 200)}</h6>
+                    <h6 onClick={() => window.open(url, '_blank')}  className="cursor-pointer hover:text-gray-500 mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white dark:hover:text-gray-500">{truncateText(title, 200)}</h6>
                     <div className="flex flex-col gap-2 items-start justify-center">
                         <MarkdownView markdown={selftext} extensions={[spoilerExtension]} options={{
                             strikethrough: true, // enable strikethrough syntax (~~like this~~)
